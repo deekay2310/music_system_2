@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<br>
+
+<div id='contain'>
+  <div class="container">
+    <div class="jumbotron" id='jumbo'>
+
+        <h2>Let us know what you like..</h2> 
+        <hr> 
+        <p>
+        <form method="POST">
+          <span class="input">
+          <input type="text" name="song" placeholder="Enter the name of a song" required>
+          <span></span> 
+          </span>
+          </p>
+          <p>
+          <span class="input">
+          <input type="text" name="artist" placeholder="Enter the name of the artist" required>
+          <span></span> 
+          </span>
+          </p>
+
+          <input type="submit" class="btn" value="Submit">
+        </form>
+        
+        <form action="/similarity">
+          <input type="submit" class="btn" value="Clear">
+        </form>
+        
+        <ol class="list-group" id="list">
+          {% for song in similarSongs %}
+            <a class="list-group-item" href="https://www.youtube.com/results?search_query={{ song }}" target="_blank">{{song}}<a class="btn btn-primary" href="/add_song/{{song}}">Add</a></a>
+          {% endfor %}
+        </ol>
+        
+        
+        
+    </div>
+  </div>
+</div>
+
+{% endblock %}

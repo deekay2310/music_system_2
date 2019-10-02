@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<br>
+
+<div id='contain'>
+  <div class="container">
+    <div class="jumbotron" id='jumbo'>
+      <h2>Popular songs across Amuse!</h2>
+      <hr> 
+      <ol class="list-group" id="list">
+        {% for song in popularSongs %}
+          <a class="list-group-item" href="https://www.youtube.com/results?search_query={{ song }}" target="_blank">{{song}}<a class="btn btn-primary" href="/add_song/{{song}}">Add</a></li>
+        {% endfor %}
+      </ol>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
